@@ -1,0 +1,57 @@
+.buttom-prev {
+    color: white;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.buttom-next {
+    color: white;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+nav > ul  {
+    list-style:none;
+    display: inline-block;
+}
+.pagination {
+    display: flex;
+    position: block;
+    align-self: start;
+    margin-left: 7%;
+}
+
+nav > p {
+    color: white;
+    background-color: transparent;
+    font-family: 'Montserrat';
+    font-style: normal;
+    border: none;
+    font-weight: 500;
+    line-height: 19px;
+    font-size: 16px;
+    padding: 16px;
+    text-decoration: none;
+    margin: 0;
+    cursor: pointer;
+}
+
+.p-border {
+    border: 1px solid rgba(0, 223, 221, 1);
+   border-radius: 50%;
+}
+
+@media screen and (max-width: 850px) {
+    .pagination {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: auto;
+    }
+}

@@ -1,0 +1,1 @@
+export const BACKEND = process.env.NODE_ENV === "development" ? "https://rickandmortyapi.com/api/character?" : "https://rickandmortyapi.com/api/character?";

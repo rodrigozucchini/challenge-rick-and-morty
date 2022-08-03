@@ -1,3 +1,5 @@
+@import "../../global.css";
+
 .search {
     display: flex;
     flex-direction: row;
@@ -11,19 +13,19 @@
     border-right: 0;
     border-top: 0;
     border-left: 0;
-    border-bottom: #00DFDD 2px solid;
+    border-bottom: var(--text-color-primary-and-border) 2px solid;
     margin: 0 30px;
     height: 32px;
-    width: calc(40% - 62px);
-    font-size: 24px;
+    width: calc(37% - 62px);
+    font-size: var(--text-font-size-search);
     font-family: 'Montserrat';
-    font-weight: 400;
-    color: #00DFDD;
+    font-weight: var(--text-font-weight);
+    color: var(--text-color-primary-and-border);
     outline: none;
 }
 
 .search > input::placeholder {
-    color: #00DFDD;
+    color: var(--text-color-primary-and-border);
     text-align: left;
     font-family: 'Nunito', sans-serif;
 }
@@ -31,7 +33,7 @@
 .icone-search {
     width: 23px;
     height: 23px;
-    border: 3px solid #00DFDD;
+    border: 3px solid var(--text-color-primary-and-border);
     border-radius: 50%;
     position: relative;
   }
@@ -40,46 +42,35 @@
     position: absolute;
     width: 50%;
     height: 3px;
-    background: #00DFDD;
+    background: var(--text-color-primary-and-border);
     display: block;
     content: "";
     top: 1%;
     left: 1%;
-    
     transform: rotate(45deg);
     transform-origin: -10px 40px; 
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 850px) {
     .search {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        width: 500px;
+        width: 550px;
         margin-left: 50px;
-        padding-bottom: 15px;
-    }    
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }   
+    .search > input {
+        width: calc(50% - 2px);
+    } 
+}
 
-    .icone-search {
-        width: 23px;
-        height: 23px;
-        border: 3px solid #00DFDD;
-        border-radius: 50%;
-        position: relative;
-      }
-      
-    .icone-search:after {
-        position: absolute;
-        width: 50%;
-        height: 3px;
-        background: #00DFDD;
-        display: block;
-        content: "";
-        top: 1%;
-        left: 1%;
-        
-        transform: rotate(45deg);
-        transform-origin: -10px 40px; 
-    }
+@media screen and (max-width: 750px) {
+    .search {
+        width: 550px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }   
+    .search > input {
+        width: calc(50% - 2px);
+    } 
 }
 

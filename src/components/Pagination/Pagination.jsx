@@ -1,11 +1,11 @@
 import React from 'react';
 import './Pagination.css';
 
-const Pagination = ({  page, setPage }) => {
-
+const Pagination = ({  page, setPage, itemsFilter }) => {
     const iconNext = ">>";
     const iconPrev = "<<";
 
+    if(itemsFilter.length === 0) return <></>
         return (
             <nav className='pagination'>
                     {
@@ -41,7 +41,7 @@ const Pagination = ({  page, setPage }) => {
                     }
                         <p className="p-border">{page}</p>
                     {
-                    page === 42 ?
+                    page === 42 || (page > 1 &&  itemsFilter.length < 18) ? 
                     null
                     :
                     <p
@@ -52,7 +52,7 @@ const Pagination = ({  page, setPage }) => {
                     }
         
                     {
-                    page === 41 || page == 42 ?
+                    page === 41 || page == 42 || itemsFilter.length < 18  ?
                     null
                     :
                     <p
@@ -63,7 +63,7 @@ const Pagination = ({  page, setPage }) => {
                     }
         
                     {
-                    page === 1 ?             
+                    page === 1  && itemsFilter.length > 18 ?             
                     <p
                         onClick={() => setPage(page + 3)}
                     >
@@ -73,7 +73,7 @@ const Pagination = ({  page, setPage }) => {
                     null
                     }
                     {
-                    page === 42 ?
+                    page === 42 || itemsFilter.length < 18 ?
                     null
                     :
                     <ul>

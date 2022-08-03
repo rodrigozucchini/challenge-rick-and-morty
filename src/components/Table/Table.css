@@ -1,41 +1,42 @@
+@import "../../global.css";
+
 table {     
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 90%; 
     text-align: left;   
-    
     border-spacing:  0 5px;
 }
 
 .table-container {
-    border-radius: 8px;
+    border-radius: var(--border-total);
     display: flex;
     width: 85%; 
     justify-content: center;
     align-items: center;
     padding-top: 31px;
     padding-bottom: 31px;
-    background-color: rgba(196, 196, 196, 0.5);
+    background-color: var(--table-background-color);
 }
 
 tr {     
-    font-size: 20px;     
-    font-weight: 400;     
+    font-size: var(--text-font-size-data-title);  
+    font-weight: var(--text-font-weight);     
     padding-bottom: 18px;   
     width: 300px;  
-    color: rgba(0, 223, 221, 1);
+    color: var(--text-color-primary-and-border);
     font-family: 'Nunito', sans-serif;
 }
 
 td:nth-child(6) {
     text-align: right;
     padding-right: 25px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-right-radius: var(--border-total);
+    border-bottom-right-radius: var(--border-total);
 }
 
 td:nth-child(1) {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: var(--border-total);
+    border-bottom-left-radius: var(--border-total);
     margin-top: 15px;
 }
 
@@ -45,7 +46,7 @@ th:nth-child(6) {
 }
 
 th {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--text-color-secundary);
     padding-bottom: 3px;
     margin-bottom: 10px;
 }
@@ -53,18 +54,18 @@ th {
 td {    
     padding: 3px;     
     width: 351px; 
-    color: white;  
-    font-size: 18px;   
-    font-weight: 400; 
+    color: var(--text-color-secundary);
+    font-size: var(--text-font-size-data);  
+    font-weight: var(--text-font-weight);
     font-family: 'Nunito', sans-serif;
 }
 
 table tr:nth-child(odd) {
-    border-radius: 8px;
+    border-radius: var(--border-total);
 }
 
 table tr:nth-child(even) {
-    background-color: rgba(10, 34, 45, 0.7);
+    background-color: var(--table-background-secundary-color);
 }
 
 
@@ -84,7 +85,6 @@ table tr:nth-child(even) {
 
 .th-description {
     display: flex;
-    z-index: 99;
     height: 64px;
     width: 64px;
     position: fixed;
@@ -92,17 +92,36 @@ table tr:nth-child(even) {
     right: 100px;
 }
 
+.tr-null {
+    padding-bottom: 18px;   
+    width: 300px; 
+    color:black;
+}
 /*<-------------------START CARD---------------------->*/
+.background-detail {
+    width: 100%;
+    height: 300%;
+    background: var(--table-background-color);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: fixed;
+}
+
 
 .character-detail {
     max-width: 410px;
     height: 700px;
-    background-color: rgba(10, 34, 45, 1);
+    background-color: var(--background-color);
     padding: 33px 40px;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    z-index: 2;
+    z-index: 3;
     position: fixed;
     top: 10vh;
 }
@@ -111,7 +130,7 @@ img {
     display: flex;
     width: 100px;
     height: 100px;
-    background-color: aliceblue;
+    background-color: var(--text-color-secundary);
     border-radius: 50%;
     align-self: center;
     margin-bottom: 10px;
@@ -120,18 +139,18 @@ img {
 div > h4 {
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
+    font-weight: var(--text-font-weight);
     font-size: 14px;
     line-height: 20px;
-    color: white;
+    color: var(--text-color-secundary);
     margin: 0;
 }
 
 .detail-description {
     color: #777777;
     border: 1px solid #D0D0D0;
-    background-color: white;
-    border-radius: 8px;
+    background-color: var(--text-color-secundary);
+    border-radius: var(--border-total);
     gap: 10px;
     display: flex;
     padding: 10px 16px;
@@ -145,7 +164,7 @@ div > h4 {
 div > button {
     display: flex;
     background-color: transparent;
-    border: 1px solid rgba(0, 223, 221, 1);
+    border: 1px solid var(--text-color-primary-and-border);
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -154,44 +173,27 @@ div > button {
     height: 38px;
     cursor: pointer;
     margin-top: 10px;
-    border-radius: 8px;
+    border-radius: var(--border-total);
     align-self: center;
-    color: white;
+    color: var(--text-color-secundary);
 }
 
 @media screen and (max-width: 580px) {
     tr {     
-        font-size: 15px;     
+        font-size: var(--text-font-size-data-tr);     
     }
     
     td {    
-        font-size: 14px;   
+        font-size: var(--text-font-size-data-td);   
     }
 }
 
 @media screen and (max-width: 550px) {
     table {     
-        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
         width: 95%; 
-        text-align: left;   
-        
-        border-spacing:  0 5px;
     }
     
     .table-container {
-        border-radius: 8px;
-        display: flex;
         width: 97%; 
-        padding-top: 31px;
-        padding-bottom: 31px;
-        background-color: rgba(196, 196, 196, 0.5);
-    }
-    
-    tr {     
-        font-size: 15px;     
-    }
-    
-    td {    
-        font-size: 14px;   
     }
 }

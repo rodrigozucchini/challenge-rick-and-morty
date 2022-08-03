@@ -1,0 +1,33 @@
+:root {
+  --background-color: rgba(10, 34, 45, 1);
+  --text-color-primary-and-border:  rgba(0, 223, 221, 1);
+  --text-color-secundary: rgba(255, 255, 255, 1);
+  --table-background-color: rgba(196, 196, 196, 0.5);
+  --table-background-secundary-color:rgba(10, 34, 45, 0.7);
+
+  --text-font-weight: 400;
+  --text-font-weight-pagination: 500;
+
+  --border-total: 8px;
+
+  --text-font-size-data-title: 20px;
+  --text-font-size-data: 18px;
+  --text-font-size-data-tr: 15px;
+  --text-font-size-data-td: 14px;
+
+  --text-font-size-pagination: 16px;
+
+  --text-font-size-card: 14px;
+
+  --text-font-size-header: 40px;
+
+  --text-font-size-search: 28px;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+  display: flex;
+}
+

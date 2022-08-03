@@ -5,7 +5,6 @@ const Search = ({text, setText}) => {
 
   const handleInputChange = (e) => {
     setText(e.target.value)
-    console.log(e.target.value)
   }
 
   return (

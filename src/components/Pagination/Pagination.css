@@ -1,41 +1,45 @@
+@import "../../global.css";
+
 .buttom-prev {
-    color: white;
+    color: var(--text-color-secundary);
     border: none;
     background: transparent;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: var(--text-font-size-pagination);
+    font-weight: var(--text-font-weight-pagination);
     cursor: pointer;
 }
 
 .buttom-next {
-    color: white;
+    color: var(--text-color-secundary);
     border: none;
     background: transparent;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: var(--text-font-size-pagination);
+    font-weight: var(--text-font-weight-pagination);
     cursor: pointer;
 }
 
 nav > ul  {
     list-style:none;
     display: inline-block;
+    padding: 0;
 }
 .pagination {
     display: flex;
+    padding-top: 36px;
     position: block;
     align-self: start;
     margin-left: 7%;
 }
 
 nav > p {
-    color: white;
+    color: var(--text-color-secundary);
     background-color: transparent;
     font-family: 'Montserrat';
     font-style: normal;
     border: none;
-    font-weight: 500;
+    font-weight: var(--text-font-weight-pagination);
     line-height: 19px;
-    font-size: 16px;
+    font-size: var(--text-font-size-pagination);
     padding: 16px;
     text-decoration: none;
     margin: 0;
@@ -43,7 +47,7 @@ nav > p {
 }
 
 .p-border {
-    border: 1px solid rgba(0, 223, 221, 1);
+    border: 1px solid var(--text-color-primary-and-border);
    border-radius: 50%;
 }
 

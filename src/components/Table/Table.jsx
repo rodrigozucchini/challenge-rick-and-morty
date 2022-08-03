@@ -3,34 +3,11 @@ import React, {useEffect} from 'react'
 import  Pagination from '../Pagination/Pagination';
 import './Table.css'
 
-export const Table = ({character, setCharacter, page, setPage, id ,setId, characterDetail, setCharacterDetail, text, setText}) => {
-
-  const initialUrl = `https://rickandmortyapi.com/api/character?page=${page}`;
-
-  const fetchCharacters = (initialUrl) => {
-    fetch(initialUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      setCharacter(data.results)
-    }) 
-    .catch((err) => console.log(err))
-  }
+export const Table = ({ page, setPage, id ,setId, characterDetail, setCharacterDetail, fetchCharacters, initialUrl, detailsButton, detailsInput, itemsFilter, text, setText, character, setCharacter}) => {
 
   useEffect(() => {
     fetchCharacters(initialUrl)
-  }, [page])
-
-  const detailsInput = (e) => {
-      setCharacterDetail(true)
-      const id = e.target.getAttribute("id")
-      setId(id)
-  }
-
-  const detailsButton = (e) => {
-    setCharacterDetail(!characterDetail)
-}
-
-  const itemsFilter = character.filter(item => item.name.toLowerCase().includes(text.toLowerCase()))
+  }, [page,text])
 
   return (
   <div className="container-generals">
@@ -45,6 +22,17 @@ export const Table = ({character, setCharacter, page, setPage, id ,setId, charac
                     <th>Episodes</th>
                     <th>Detail</th>
                 </tr>
+                {itemsFilter.length !== 0 ? 
+                null 
+                :
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>}
                 {itemsFilter.map((item, index) => (
                 <tr key={index}>
                   <td>{item.name}</td>
@@ -58,32 +46,34 @@ export const Table = ({character, setCharacter, page, setPage, id ,setId, charac
                     <td>Participate in {item.episode.length} episodes</td>
                   }
                   <td><button className="eyes" id={index} onClick={detailsInput}>👁</button></td>
-                </tr>
-                ))}
+                </tr>) 
+                )}
             </thead>
         </table>
     </div>
-    <Pagination page={page} setPage={setPage} itemsFilter={itemsFilter}  />
+    <Pagination page={page} setPage={setPage} itemsFilter={itemsFilter} />
       {
       characterDetail === true
       ? 
-      <div className="character-detail">
-      <img src={itemsFilter[id].image}  />
-      <h4>Name</h4>
-          <p className='detail-description'>{itemsFilter[id].name}</p>
-      <h4>Code</h4>
-          <p className='detail-description'>{itemsFilter[id].status}</p>
-      <h4>Air Date</h4>
-        <p className='detail-description'>{itemsFilter[id].species}</p>
-        {itemsFilter[id].type === "" ? null : (<h4>Type</h4>)}
-        {itemsFilter[id].type === "" ? null : (<p className='detail-description'>{itemsFilter[id].type}</p>)}
-      <h4>Gender</h4>
-        <p className='detail-description'>{itemsFilter[id].gender}</p>
-      <h4>Origin</h4>
-        <p className='detail-description'>{itemsFilter[id].origin.name}</p>
-      <h4>Location</h4>
-          <p className='detail-description'>{itemsFilter[id].location.name}</p>
-      <button onClick={detailsButton}>Close</button>
+      <div className="background-detail">
+          <div className="character-detail">
+          <img src={itemsFilter[id].image}  />
+          <h4>Name</h4>
+              <p className='detail-description'>{itemsFilter[id].name}</p>
+          <h4>Code</h4>
+              <p className='detail-description'>{itemsFilter[id].status}</p>
+          <h4>Air Date</h4>
+            <p className='detail-description'>{itemsFilter[id].species}</p>
+            {itemsFilter[id].type === "" ? null : (<h4>Type</h4>)}
+            {itemsFilter[id].type === "" ? null : (<p className='detail-description'>{itemsFilter[id].type}</p>)}
+          <h4>Gender</h4>
+            <p className='detail-description'>{itemsFilter[id].gender}</p>
+          <h4>Origin</h4>
+            <p className='detail-description'>{itemsFilter[id].origin.name}</p>
+          <h4>Location</h4>
+              <p className='detail-description'>{itemsFilter[id].location.name}</p>
+          <button onClick={detailsButton}>Close</button>
+      </div>
       </div>
       : 
       null
